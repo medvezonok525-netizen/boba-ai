@@ -1,0 +1,94 @@
+html, body {
+    margin: 0; padding: 0; width: 100%; height: 100%;
+    background-color: #0b0c10; overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    touch-action: none;
+}
+
+.ui-wrapper {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; flex-direction: column; justify-content: space-between;
+    box-sizing: border-box; padding: 40px;
+    background: radial-gradient(circle at center, #1a1c23 0%, #0b0c10 100%);
+}
+
+.header-panel {
+    display: flex; justify-content: space-between; align-items: center;
+    width: 100%;
+}
+
+.assistant-title {
+    font-size: 20px; font-weight: 700; color: #a6adbb;
+    letter-spacing: 1px;
+}
+
+#character-mode {
+    background: #ff3b30; color: #ffffff;
+    padding: 12px 24px; border-radius: 14px; font-weight: 700;
+    font-size: 14px; box-shadow: 0 4px 15px rgba(255, 59, 48, 0.3);
+    text-transform: uppercase; cursor: pointer;
+}
+#character-mode.kind-style {
+    background: #34c759;
+    box-shadow: 0 4px 15px rgba(52, 199, 89, 0.3);
+}
+
+/* СТИЛИ ПУЛЬСИРУЮЩЕГО ШАРА АЛИСЫ */
+.sphere-container {
+    display: flex; flex-direction: column; align-items: center; gap: 25px;
+}
+
+#boba-sphere {
+    width: 140px; height: 140px;
+    background: radial-gradient(circle at 30% 30%, #ff3b30, #9333ea);
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(147, 51, 234, 0.5), inset 0 0 20px rgba(0,0,0,0.6);
+    transition: all 0.4s ease;
+}
+
+/* Анимация пульсации, когда Боба слушает запрос */
+#boba-sphere.listening {
+    background: radial-gradient(circle at 30% 30%, #00ff66, #007aff);
+    box-shadow: 0 0 40px rgba(0, 255, 102, 0.7);
+    transform: scale(1.1);
+    animation: bobaPulse 1.5s infinite alternate ease-in-out;
+}
+
+/* Анимация, когда ИИ думает над ответом */
+#boba-sphere.thinking {
+    background: radial-gradient(circle at 30% 30%, #ffcc00, #ff9500);
+    box-shadow: 0 0 40px rgba(255, 204, 0, 0.7);
+    animation: bobaThink 0.8s infinite linear;
+}
+
+#status-text {
+    font-size: 14px; font-weight: 700; color: #86868b;
+    text-transform: uppercase; letter-spacing: 2px;
+}
+
+.dialogue-panel {
+    background: rgba(22, 23, 27, 0.6);
+    border: 1px solid rgba(255,255,255,0.05);
+    color: #f5f5f7; padding: 26px; border-radius: 20px;
+    max-width: 600px; margin: 0 auto; width: 100%;
+    box-sizing: border-box; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(20px);
+}
+
+.log-label {
+    font-size: 11px; font-weight: 600; color: #64748b;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+}
+
+#output-text { font-size: 18px; font-weight: 500; line-height: 1.5; }
+.boba-highlight { color: #ffcc00; font-weight: 600; }
+
+@keyframes bobaPulse {
+    from { transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 255, 102, 0.5); }
+    to { transform: scale(1.15); box-shadow: 0 0 50px rgba(0, 255, 102, 0.8); }
+}
+@keyframes bobaThink {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+}
