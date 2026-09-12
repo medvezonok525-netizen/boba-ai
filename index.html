@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Голосовой ассистент БОБА v2.5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Графическая оболочка колонки Бобы -->
+    <div class="ui-wrapper">
+        <div class="header-panel">
+            <div class="assistant-title">BOBA_STATION // v2.5</div>
+            <div id="character-mode" onclick="toggleBobaMode()">МАТЫ: ВКЛ</div>
+        </div>
+
+        <!-- Центральный пульсирующий ИИ-шар в стиле Алисы -->
+        <div class="sphere-container">
+            <div id="boba-sphere"></div>
+            <div id="status-text">ОЖИДАНИЕ ИМЕНИ</div>
+        </div>
+
+        <div class="dialogue-panel">
+            <div class="log-label">Монитор диалога</div>
+            <div id="output-text">Скажи громко: <span class="boba-highlight">"Боба"</span>, а затем задай любой вопрос.</div>
+        </div>
+    </div>
+
+    <script src="boba.js"></script>
+</body>
+</html>
